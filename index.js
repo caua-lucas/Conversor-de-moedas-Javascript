@@ -32,12 +32,14 @@ const dolar = 5.2
 const euro = 5.9
 const bitcoin = 1.00
 
-const convert_value = () => {  // função para pegar o valor em reais para converter em dolar.
+
+const convert_value = async () => {  // função para pegar o valor em reais para converter em dolar.
     const inputReal = document.querySelector('input').value  // .value-exibe somente o valor do input. 
     const realValueText = document.getElementById('realValueText')
     const currency_value_text = document.getElementById('currency-value-text')
    // realValueText.innerHTML = inputReal // troca o valor do paragrafo no codigo html para o valor em real.
 
+    const data = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
     realValueText.innerHTML =  new Intl.NumberFormat('pt-br',
     { style: 'currency',
         currency: 'BRL' }
