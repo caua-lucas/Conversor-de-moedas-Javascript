@@ -40,6 +40,10 @@ const convert_value = async () => {  // função para pegar o valor em reais par
    // realValueText.innerHTML = inputReal // troca o valor do paragrafo no codigo html para o valor em real.
 
     const data = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+
+    const dolar = data.USDBRL.high
+    const euro = data.EURBRL.high
+    
     realValueText.innerHTML =  new Intl.NumberFormat('pt-br',
     { style: 'currency',
         currency: 'BRL' }
